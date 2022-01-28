@@ -2,10 +2,10 @@
   "_fv": 24,
   "_type": "achievement",
   "definition": {
-    "achievementName": "How am I supposed to enter it",
-    "achievementDescription": "Try to break energioom bunker building blocks",
+    "achievementName": "How am I supposed to break it?",
+    "achievementDescription": "Try to break living energioom blocks",
     "achievementIcon": {
-      "value": "CUSTOM:EnergioomBlock"
+      "value": "CUSTOM:LivingEnergioomBlock"
     },
     "background": "Default",
     "disableDisplay": false,

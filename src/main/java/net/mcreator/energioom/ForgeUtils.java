@@ -17,6 +17,7 @@ import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.client.network.play.NetworkPlayerInfo;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.Inventory;
@@ -27,11 +28,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.Property;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -41,7 +45,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-public class forgeUtils {
+public class ForgeUtils {
     public static void sendMessage(PlayerEntity entity, String message, boolean actionBar) {
         entity.sendStatusMessage((ITextComponent) new StringTextComponent(message), actionBar);
     }
@@ -271,6 +275,23 @@ public class forgeUtils {
         }
     }
 
+    public static void AddAchievement(Entity entity, ResourceLocation adv) {
+        if (entity instanceof ServerPlayerEntity) {
+            AddAchievement((ServerPlayerEntity) entity, adv);
+        }
+    }
+
+    public static boolean hasPotionEffect(Entity _entity, Effect potion) {
+        if (_entity instanceof LivingEntity) {
+            Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
+            for (EffectInstance effect : effects) {
+                if (effect.getPotion() == potion)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     public static class itemUtils {
         public static IItemHandler getInventoryCapability(BlockPos pos, World world) {
             TileEntity tileEntity = world.getTileEntity(pos);
@@ -328,9 +349,9 @@ public class forgeUtils {
         }
 
         public static boolean consumeItem(BlockPos pos, Item item, int slot, World world) {
-            if (forgeUtils.itemUtils.equals(pos, slot, item, world)) {
-                if (forgeUtils.itemUtils.getItemCount(pos, slot, world) > 0) {
-                    forgeUtils.itemUtils.changeStackAmountRelative(pos, slot, -1, world);
+            if (ForgeUtils.itemUtils.equals(pos, slot, item, world)) {
+                if (ForgeUtils.itemUtils.getItemCount(pos, slot, world) > 0) {
+                    ForgeUtils.itemUtils.changeStackAmountRelative(pos, slot, -1, world);
                     return true;
                 }
             }

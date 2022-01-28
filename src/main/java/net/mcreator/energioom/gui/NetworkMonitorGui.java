@@ -2,9 +2,8 @@
 package net.mcreator.energioom.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.minecraft.client.gui.AbstractGui;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraftforge.items.ItemStackHandler;
@@ -131,14 +130,18 @@ public class NetworkMonitorGui extends EnergioomModElements.ModElement {
 			int l = (this.height - this.ySize) / 2;
 			this.blit(ms,k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
 
-			int energy = (int)  energyUtils.getEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world);
-			int maxEnergy = (int)  energyUtils.getMaxEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world);
+			int energy = (int)  EnergyUtils.getEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world);
+			int maxEnergy = (int)  EnergyUtils.getMaxEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world);
 			int div = 0;
 			if(maxEnergy>0)
 			div = Math.floorDiv(energy*100,maxEnergy);
 
-			this.font.drawString(ms,"Network: " + energyUtils.getEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world) + "/" + energyUtils.getMaxEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world), 0, 0, -12829636);
-			forgeUtils.guiUtils.drawVProgress(0,25,50,200,div , Color.cyan);
+			if(energy>=100000){
+				ForgeUtils.AddAchievement(entity,new ResourceLocation("energioom:thats_a_lot_of_energy"));
+			}
+
+			this.font.drawString(ms,"Network: " + energy + "/" + maxEnergy, 0, 0, -12829636);
+			ForgeUtils.guiUtils.drawVProgress(0,25,50,200,div , Color.cyan);
 		}
 
 		@Override

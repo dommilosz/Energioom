@@ -1,14 +1,11 @@
 package net.mcreator.energioom.procedures;
 
+import net.mcreator.energioom.EnergyUtils;
 import net.mcreator.energioom.block.EnergioomDoorsBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -50,19 +47,19 @@ public class EnergioomDoorsUpdateTickProcedure extends EnergioomModElements.ModE
 
 		BlockPos pos = new BlockPos(x,y ,z );
 
-		forgeUtils.sideBlock[] sides = forgeUtils.getSidesOf(pos,EnergioomDoorsBlock.block,world);
+		ForgeUtils.sideBlock[] sides = ForgeUtils.getSidesOf(pos,EnergioomDoorsBlock.block,world);
 		boolean hasPower = false;
-		for(forgeUtils.sideBlock side:sides){
-			if(energyUtils.getEnergy(side.pos,world)>=4500){
+		for(ForgeUtils.sideBlock side:sides){
+			if(EnergyUtils.getEnergy(side.pos,world)>=4500){
 				hasPower = true;
 			}
 		}
-		if(energyUtils.getEnergy(pos,world)>=4500){
-			energyUtils.removeEnergy(pos,2,world);
+		if(EnergyUtils.getEnergy(pos,world)>=4500){
+			EnergyUtils.removeEnergy(pos,2,world);
 			hasPower = true;
 		}
 
-		forgeUtils.setProp(pos,OPEN,hasPower,world);
+		ForgeUtils.setProp(pos,OPEN,hasPower,world);
 
 	}
 }

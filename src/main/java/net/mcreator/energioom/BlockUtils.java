@@ -6,10 +6,9 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
-public class blockUtils {
+public class BlockUtils {
     public static BlockPos HasConnectionTo(BlockPos from, Block block, World world) {
         Block block_from = world.getBlockState(from).getBlock();
         return HasConnectionTo(from, new Block[]{block_from}, block, world, 64, new BlockPos[]{});
@@ -35,16 +34,16 @@ public class blockUtils {
         int sy = from.getY();
         int sz = from.getZ();
 
-        if (forgeUtils.getSidesOf(from, block, world).length > 0) {
-            return forgeUtils.getSidesOf(from, block, world)[0].pos;
+        if (ForgeUtils.getSidesOf(from, block, world).length > 0) {
+            return ForgeUtils.getSidesOf(from, block, world)[0].pos;
         }
 
-        List<forgeUtils.sideBlock> blocks = new ArrayList<>();
+        List<ForgeUtils.sideBlock> blocks = new ArrayList<>();
         for (Block _block : adj_blocks) {
-            blocks.addAll(Arrays.asList(forgeUtils.getSidesOf(from, _block, world)));
+            blocks.addAll(Arrays.asList(ForgeUtils.getSidesOf(from, _block, world)));
         }
 
-        for (forgeUtils.sideBlock _block : blocks) {
+        for (ForgeUtils.sideBlock _block : blocks) {
             BlockPos p = HasConnectionTo(_block.pos, adj_blocks, block, world, nest - 1, already_checked.toArray(new BlockPos[0]));
             if (p != null) {
                 return p;
@@ -72,12 +71,12 @@ public class blockUtils {
         int sy = from.getY();
         int sz = from.getZ();
 
-        List<forgeUtils.sideBlock> blocks = new ArrayList<>();
+        List<ForgeUtils.sideBlock> blocks = new ArrayList<>();
         for (Block _block : adj_blocks) {
-            blocks.addAll(Arrays.asList(forgeUtils.getSidesOf(from, _block, world)));
+            blocks.addAll(Arrays.asList(ForgeUtils.getSidesOf(from, _block, world)));
         }
 
-        for (forgeUtils.sideBlock _block : blocks) {
+        for (ForgeUtils.sideBlock _block : blocks) {
             GetConnectedBlocks(_block.pos, adj_blocks, world, nest - 1, already_checked);
         }
         return already_checked.toArray(new BlockPos[0]);

@@ -1,14 +1,11 @@
 package net.mcreator.energioom.procedures;
 
 import net.mcreator.energioom.block.EnergioomVanishitator3600Block;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -47,9 +44,9 @@ public class EnergioomVanishitator3600UpdateTickProcedure extends EnergioomModEl
         World world = (World) dependencies.get("world");
         BlockPos pos = new BlockPos(x, y, z);
 
-        forgeUtils.setProp(pos, EnergioomVanishitator3600Block.REDSTONE, forgeUtils.isBlockPowered(pos, world), world);
-        if (forgeUtils.isBlockPowered(pos, world)) {
-            energyUtils.removeEnergy(pos, 1000, world);
+        ForgeUtils.setProp(pos, EnergioomVanishitator3600Block.REDSTONE, ForgeUtils.isBlockPowered(pos, world), world);
+        if (ForgeUtils.isBlockPowered(pos, world)) {
+            EnergyUtils.removeEnergy(pos, 1000, world);
         }
 
     }

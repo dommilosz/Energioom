@@ -1,8 +1,8 @@
 
 package net.mcreator.energioom.gui;
 
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -24,8 +24,6 @@ import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
-
-import javax.naming.CompoundName;
 
 @OnlyIn(Dist.CLIENT)
 public class EnergioomShieldProjectorGUIGuiWindow extends ContainerScreen<EnergioomShieldProjectorGUIGui.GuiContainerMod> {
@@ -84,7 +82,7 @@ public class EnergioomShieldProjectorGUIGuiWindow extends ContainerScreen<Energi
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		BlockPos pos = new BlockPos(this.x, this.y, this.z);
-		CompoundNBT nbt = forgeUtils.getNBT(pos,world);
+		CompoundNBT nbt = ForgeUtils.getNBT(pos,world);
 		if(nbt==null){
 			this.font.drawString(ms, "Error:", 6, 25, -65536);
 			return;
@@ -95,14 +93,15 @@ public class EnergioomShieldProjectorGUIGuiWindow extends ContainerScreen<Energi
 		boolean self_prevent = nbt.getBoolean("selfPrevent_enabled");
 		String owner = nbt.getString("owner-nick");
 		double energy_usage = nbt.getDouble("energy_usage");
-		double energy = energyUtils.getEnergy(pos,world);
+		double energy = EnergyUtils.getEnergy(pos,world);
+		double energy_max = EnergyUtils.getMaxEnergy(pos,world);
 
 		this.font.drawString(ms, "Enabled: "+enabled, 6, 25, -12829636);
-		this.font.drawString(ms, "Anti TNT:"+tnt, 6, 52, -12829636);
-		this.font.drawString(ms, "Self Prevent:"+self_prevent, 6, 79, -12829636);
+		this.font.drawString(ms, "Anti TNT: "+tnt, 6, 52, -12829636);
+		this.font.drawString(ms, "Self Prevent: "+self_prevent, 6, 79, -12829636);
 		this.font.drawString(ms, "Power Usage: "+energy_usage, 6, 115, -12829636);
 		this.font.drawString(ms, "Owner: "+owner, 6, 133, -12829636);
-		this.font.drawString(ms, "Stored energy: "+energy+"/5000", 6, 151, -12829636);
+		this.font.drawString(ms, "Stored energy: "+energy+"/"+energy_max, 6, 151, -12829636);
 	}
 
 	@Override

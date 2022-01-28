@@ -1,6 +1,6 @@
 package net.mcreator.energioom;
 
-public class upgradeHandler {
+public class UpgradeHandler {
     public static double getSpeed(int count) {
         return Math.pow((count + 1), 0.5D);
     }

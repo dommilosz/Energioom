@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "energioom:energioom_battery"
+    },
+    "title": {
+      "translate": "advancements.thats_a_lot_of_energy.title"
+    },
+    "description": {
+      "translate": "advancements.thats_a_lot_of_energy.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "thats_a_lot_of_energy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "energioom:first_energy"
+}

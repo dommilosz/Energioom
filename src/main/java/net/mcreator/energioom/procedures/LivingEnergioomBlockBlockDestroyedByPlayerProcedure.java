@@ -1,11 +1,9 @@
 package net.mcreator.energioom.procedures;
 
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.EnergioomShieldProjectorBlock;
 import net.mcreator.energioom.block.LivingEnergioomBlockBlock;
-import net.mcreator.energioom.blockUtils;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
@@ -14,10 +12,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.world.BlockEvent;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.entity.Entity;
 
 import java.util.*;
@@ -29,13 +25,13 @@ public class LivingEnergioomBlockBlockDestroyedByPlayerProcedure {
     private static class GlobalTrigger {
         public static BlockPos checkProjector(BlockState state, BlockPos pos, World world) {
             if (!state.getBlock().equals(LivingEnergioomBlockBlock.block)) return null;
-            BlockPos projLoc = forgeUtils.getNBTBlockPos(pos, "projector_loc", world);
+            BlockPos projLoc = ForgeUtils.getNBTBlockPos(pos, "projector_loc", world);
             if (projLoc != null) {
                 if (world.getBlockState(projLoc).getBlock() == EnergioomShieldProjectorBlock.block) {
-                    List<BlockPos> array = new ArrayList<>(Arrays.asList(forgeUtils.getNBTBlockPosArray(projLoc, "connectedBlocks", world)));
+                    List<BlockPos> array = new ArrayList<>(Arrays.asList(ForgeUtils.getNBTBlockPosArray(projLoc, "connectedBlocks", world)));
                     if (array != null && array.contains(pos)) {
-                        boolean isEnabled = forgeUtils.getNBT(projLoc,world).getBoolean("protection_enabled");
-                        boolean hasPower = energyUtils.useEnergy(projLoc,4,true,world);
+                        boolean isEnabled = ForgeUtils.getNBT(projLoc,world).getBoolean("protection_enabled");
+                        boolean hasPower = EnergyUtils.useEnergy(projLoc,4,true,world);
                         if(isEnabled&&hasPower){
                             return projLoc;
                         }
@@ -48,7 +44,7 @@ public class LivingEnergioomBlockBlockDestroyedByPlayerProcedure {
         public static BlockPos checkProjectorExp(BlockState state, BlockPos _pos, World world) {
             BlockPos projLoc = checkProjector(state,_pos,world);
             if(projLoc==null) return null;
-            if(forgeUtils.getNBT(projLoc,world).getBoolean("isExplosionProof")){
+            if(ForgeUtils.getNBT(projLoc,world).getBoolean("isExplosionProof")){
                 return projLoc;
             }
             return null;
@@ -63,9 +59,9 @@ public class LivingEnergioomBlockBlockDestroyedByPlayerProcedure {
         }
 
         public static boolean checkOwner(BlockPos pos, Entity entity, World world){
-            if(forgeUtils.getNBT(pos,world).getBoolean("selfPrevent_enabled")){
+            if(ForgeUtils.getNBT(pos,world).getBoolean("selfPrevent_enabled")){
                 return true;
-            }else return !entity.getUniqueID().toString().equals(forgeUtils.getNBT(pos, world).getString("owner-id"));
+            }else return !entity.getUniqueID().toString().equals(ForgeUtils.getNBT(pos, world).getString("owner-id"));
         }
 
         @SubscribeEvent
@@ -75,12 +71,12 @@ public class LivingEnergioomBlockBlockDestroyedByPlayerProcedure {
             BlockState state = event.getState();
             BlockPos pos = event.getPos();
 
-            if (forgeUtils.getGameMode(entity) == 1) return;
+            if (ForgeUtils.getGameMode(entity) == 1) return;
             BlockPos _pos = checkProjector(state, pos, world);
-            if (_pos != null && energyUtils.useEnergy(_pos, 10, false, world)) {
+            if (_pos != null && EnergyUtils.useEnergy(_pos, 10, false, world)) {
                 if(!checkOwner(_pos,entity,world))return;
                 event.setCanceled(true);
-                forgeUtils.AddAchievement(entity,new ResourceLocation("energioom:how_am_i_supposed_to_open_it"));
+                ForgeUtils.AddAchievement(entity,new ResourceLocation("energioom:how_am_i_supposed_to_open_it"));
             }
         }
 
@@ -91,13 +87,13 @@ public class LivingEnergioomBlockBlockDestroyedByPlayerProcedure {
             BlockState state = event.getState();
             PlayerEntity entity = event.getPlayer();
 
-            if (forgeUtils.getGameMode(entity) == 1) return;
+            if (ForgeUtils.getGameMode(entity) == 1) return;
 
             BlockPos _pos = checkProjector(state, pos, world);
-            if (_pos != null && energyUtils.useEnergy(_pos, 10, false, world)) {
+            if (_pos != null && EnergyUtils.useEnergy(_pos, 10, false, world)) {
                 if(!checkOwner(_pos,entity,world))return;
                 event.setCanceled(true);
-                forgeUtils.AddAchievement(entity,new ResourceLocation("energioom:how_am_i_supposed_to_open_it"));
+                ForgeUtils.AddAchievement(entity,new ResourceLocation("energioom:how_am_i_supposed_to_open_it"));
             }
         }
 
@@ -107,7 +103,7 @@ public class LivingEnergioomBlockBlockDestroyedByPlayerProcedure {
             List<BlockPos> toRemove = new LinkedList<>();
             for (BlockPos pos : affectedBlocks) {
                 BlockPos _pos = checkProjectorExp(pos, event.getWorld());
-                if (_pos != null && energyUtils.useEnergy(_pos, 50, false, event.getWorld())) {
+                if (_pos != null && EnergyUtils.useEnergy(_pos, 50, false, event.getWorld())) {
                     toRemove.add(pos);
                     //event.setCanceled(true);
                 }

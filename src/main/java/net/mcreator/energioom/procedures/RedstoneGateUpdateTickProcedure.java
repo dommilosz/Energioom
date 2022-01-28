@@ -1,21 +1,12 @@
 package net.mcreator.energioom.procedures;
 
-import net.mcreator.energioom.block.DiodeINBlock;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.DiodeOUTBlock;
 import net.mcreator.energioom.block.RedstoneDiodeINBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.Property;
+import net.mcreator.energioom.EnergyUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -55,12 +46,12 @@ public class RedstoneGateUpdateTickProcedure extends EnergioomModElements.ModEle
 
 		BlockPos pos = new BlockPos(x,y,z);
 
-		forgeUtils.setProp(pos,RedstoneDiodeINBlock.REDSTONE,forgeUtils.isBlockPowered(pos,world),world);
+		ForgeUtils.setProp(pos,RedstoneDiodeINBlock.REDSTONE, ForgeUtils.isBlockPowered(pos,world),world);
 
-		if(forgeUtils.isBlockPowered(pos,world)){
-			forgeUtils.sideBlock[] sides = forgeUtils.getSidesOf(new BlockPos(x,y,z), DiodeOUTBlock.block,world);
-			for(forgeUtils.sideBlock side:sides){
-				energyUtils.sendEnergyNBL(new BlockPos(x,y,z),side.pos,1000,world);
+		if(ForgeUtils.isBlockPowered(pos,world)){
+			ForgeUtils.sideBlock[] sides = ForgeUtils.getSidesOf(new BlockPos(x,y,z), DiodeOUTBlock.block,world);
+			for(ForgeUtils.sideBlock side:sides){
+				EnergyUtils.sendEnergyNBL(new BlockPos(x,y,z),side.pos,1000,world);
 			}
 		}
 	}

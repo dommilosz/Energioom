@@ -1,7 +1,7 @@
 
 package net.mcreator.energioom.gui;
 
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.fml.network.NetworkEvent;
@@ -28,7 +28,6 @@ import net.mcreator.energioom.EnergioomModElements;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Collections;
 
 @EnergioomModElements.ModElement.Tag
 public class EnergioomShieldProjectorGUIGui extends EnergioomModElements.ModElement {
@@ -186,16 +185,16 @@ public class EnergioomShieldProjectorGUIGui extends EnergioomModElements.ModElem
 		if (!world.isBlockLoaded(pos))
 			return;
 		if (buttonID == 0) {
-			boolean enabled = forgeUtils.getNBT(pos, world).getBoolean("protection_enabled");
-			forgeUtils.setNBTProp(pos,"protection_enabled",!enabled,world);
+			boolean enabled = ForgeUtils.getNBT(pos, world).getBoolean("protection_enabled");
+			ForgeUtils.setNBTProp(pos,"protection_enabled",!enabled,world);
 		}
 		if (buttonID == 1) {
-			boolean enabled = forgeUtils.getNBT(pos, world).getBoolean("explosionProtection_enabled");
-			forgeUtils.setNBTProp(pos,"explosionProtection_enabled",!enabled,world);
+			boolean enabled = ForgeUtils.getNBT(pos, world).getBoolean("explosionProtection_enabled");
+			ForgeUtils.setNBTProp(pos,"explosionProtection_enabled",!enabled,world);
 		}
 		if (buttonID == 2) {
-			boolean enabled = forgeUtils.getNBT(pos, world).getBoolean("selfPrevent_enabled");
-			forgeUtils.setNBTProp(pos,"selfPrevent_enabled",!enabled,world);
+			boolean enabled = ForgeUtils.getNBT(pos, world).getBoolean("selfPrevent_enabled");
+			ForgeUtils.setNBTProp(pos,"selfPrevent_enabled",!enabled,world);
 		}
 	}
 

@@ -1,19 +1,14 @@
 package net.mcreator.energioom.procedures;
 
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.EnergioomBatteryBlock;
-import net.mcreator.energioom.block.RedstoneDiodeINBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 @EnergioomModElements.ModElement.Tag
@@ -49,13 +44,13 @@ public class BatteryScriptProcedure extends EnergioomModElements.ModElement {
 		World world = (World) dependencies.get("world");
 		BlockPos pos = new BlockPos(x,y ,z );
 
-		int energy = (int) energyUtils.getEnergy(pos,world);
-		int maxEnergy = (int) energyUtils.getMaxEnergy(pos,world);
+		int energy = (int) EnergyUtils.getEnergy(pos,world);
+		int maxEnergy = (int) EnergyUtils.getMaxEnergy(pos,world);
 
 		try {
-			forgeUtils.setProp(pos, EnergioomBatteryBlock.POWER_LVL, (int) Math.floor((float) energy / maxEnergy * 8), world);
+			ForgeUtils.setProp(pos, EnergioomBatteryBlock.POWER_LVL, (int) Math.floor((float) energy / maxEnergy * 8), world);
 		}catch (Exception ignored){}
 
-		energyUtils.distributeEnergy(new BlockPos(x,y,z),1000,world);
+		EnergyUtils.distributeEnergy(new BlockPos(x,y,z),1000,world);
 	}
 }

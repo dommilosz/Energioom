@@ -1,24 +1,15 @@
 package net.mcreator.energioom.procedures;
 
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.mcreator.energioom.upgradeHandler;
-import net.minecraft.item.Item;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
+import net.mcreator.energioom.UpgradeHandler;
 import net.minecraft.world.World;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.item.ItemStack;
 
 import net.mcreator.energioom.item.EnergioomCrystalItem;
 import net.mcreator.energioom.EnergioomModElements;
 
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 @EnergioomModElements.ModElement.Tag
@@ -55,27 +46,27 @@ public class ItemEnergioomoniser3000UpdateTickProcedure extends EnergioomModElem
 
 		BlockPos pos = new BlockPos(x,y ,z );
 
-		forgeUtils.setNBTProp(pos,"upgradeable",true,world);
-		int speedCount = (forgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
-		int effCount= (forgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
-		double progress= (forgeUtils.getNBT(pos, world).getDouble("progress"));
+		ForgeUtils.setNBTProp(pos,"upgradeable",true,world);
+		int speedCount = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
+		int effCount= (ForgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
+		double progress= (ForgeUtils.getNBT(pos, world).getDouble("progress"));
 		if(progress>=1){
-			double progressChange = upgradeHandler.getSpeed(speedCount);
+			double progressChange = UpgradeHandler.getSpeed(speedCount);
 			if(progress+progressChange>101)progressChange=101-progress;
-			progress+= progressChange*upgradeHandler.getEff(effCount);
-			energyUtils.generateEnergyCacheDecimal(pos,progressChange*20,false,world);
+			progress+= progressChange* UpgradeHandler.getEff(effCount);
+			EnergyUtils.generateEnergyCacheDecimal(pos,progressChange*20,false,world);
 		}
 		if(progress>=100.95){
 			progress=0;
 		}
 		if(progress<=0){
-			if(forgeUtils.itemUtils.consumeItem(pos, EnergioomCrystalItem.block,0,world)){
+			if(ForgeUtils.itemUtils.consumeItem(pos, EnergioomCrystalItem.block,0,world)){
 				progress=1;
 			}
 
 		}
-		forgeUtils.setNBTProp(pos, "progress", progress,world);
-		energyUtils.sendEnergy(pos,new BlockPos(x,y-1,z),1000,world);
+		ForgeUtils.setNBTProp(pos, "progress", progress,world);
+		EnergyUtils.sendEnergy(pos,new BlockPos(x,y-1,z),1000,world);
 
 	}
 }

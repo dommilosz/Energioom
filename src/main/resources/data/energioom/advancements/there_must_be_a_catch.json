@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "energioom:powdered_energioom"
+    },
+    "title": {
+      "translate": "advancements.there_must_be_a_catch.title"
+    },
+    "description": {
+      "translate": "advancements.there_must_be_a_catch.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "there_must_be_a_catch": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "energioom:powdered_energioom"
+        }
+      }
+    }
+  },
+  "parent": "energioom:getting_started_advancement"
+}

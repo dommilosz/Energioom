@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "energioom:energioom_block"
+      "item": "energioom:living_energioom_block"
     },
     "title": {
       "translate": "advancements.how_am_i_supposed_to_open_it.title"

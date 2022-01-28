@@ -2,9 +2,8 @@
 package net.mcreator.energioom.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.mcreator.energioom.block.EnergioomFurnaceBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.opengl.GL11;
 
@@ -353,9 +352,9 @@ public class EnergioomFurnaceGUIGui extends EnergioomModElements.ModElement {
             int progress = 0;
             BlockPos pos = new BlockPos(this.x, this.y, this.z);
             try {
-                energy = energyUtils.getEnergy(pos, world);
-                maxEnergy = energyUtils.getMaxEnergy(pos, world);
-                progress =(int) (forgeUtils.getNBT(pos,world).getDouble("progress"));
+                energy = EnergyUtils.getEnergy(pos, world);
+                maxEnergy = EnergyUtils.getMaxEnergy(pos, world);
+                progress =(int) (ForgeUtils.getNBT(pos,world).getDouble("progress"));
             } catch (Exception ignored) {
             }
             int maxSpeed = 2;

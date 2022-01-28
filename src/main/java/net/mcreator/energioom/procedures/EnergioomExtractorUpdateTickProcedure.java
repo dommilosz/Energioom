@@ -1,16 +1,12 @@
 package net.mcreator.energioom.procedures;
 
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.DiodeOUTBlock;
 import net.mcreator.energioom.block.EnergioomExtractorBlock;
-import net.mcreator.energioom.block.RedstoneDiodeINBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -50,17 +46,17 @@ public class EnergioomExtractorUpdateTickProcedure extends EnergioomModElements.
 
 		BlockPos pos = new BlockPos(x,y,z);
 
-		forgeUtils.setProp(pos, EnergioomExtractorBlock.REDSTONE,forgeUtils.isBlockPowered(pos,world),world);
+		ForgeUtils.setProp(pos, EnergioomExtractorBlock.REDSTONE, ForgeUtils.isBlockPowered(pos,world),world);
 
-		if(forgeUtils.isBlockPowered(pos,world)){
-			forgeUtils.sideBlock[] sides = forgeUtils.getSidesOf(new BlockPos(x,y,z), DiodeOUTBlock.block,world);
-			forgeUtils.sideBlock[] sides2 = energyUtils.getEnergySides(new BlockPos(x,y,z),world);
-			for(forgeUtils.sideBlock side:sides){
-				energyUtils.sendEnergyNBL(new BlockPos(x,y,z),side.pos,1000,world);
+		if(ForgeUtils.isBlockPowered(pos,world)){
+			ForgeUtils.sideBlock[] sides = ForgeUtils.getSidesOf(new BlockPos(x,y,z), DiodeOUTBlock.block,world);
+			ForgeUtils.sideBlock[] sides2 = EnergyUtils.getEnergySides(new BlockPos(x,y,z),world);
+			for(ForgeUtils.sideBlock side:sides){
+				EnergyUtils.sendEnergyNBL(new BlockPos(x,y,z),side.pos,1000,world);
 			}
 
-			for(forgeUtils.sideBlock side2:sides2){
-				energyUtils.sendEnergyInvert(side2.pos,new BlockPos(x,y,z),1000,world);
+			for(ForgeUtils.sideBlock side2:sides2){
+				EnergyUtils.sendEnergyInvert(side2.pos,new BlockPos(x,y,z),1000,world);
 			}
 		}
 	}

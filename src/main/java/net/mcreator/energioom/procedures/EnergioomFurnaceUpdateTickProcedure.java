@@ -1,15 +1,12 @@
 package net.mcreator.energioom.procedures;
 
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.EnergioomFurnaceBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.mcreator.energioom.upgradeHandler;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.UpgradeHandler;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -47,36 +44,36 @@ public class EnergioomFurnaceUpdateTickProcedure extends EnergioomModElements.Mo
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 		BlockPos pos = new BlockPos(x,y ,z );
-		forgeUtils.setNBTProp(pos,"upgradeable",true,world);
-		int speedCount = (forgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
-		int effCount= (forgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
+		ForgeUtils.setNBTProp(pos,"upgradeable",true,world);
+		int speedCount = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
+		int effCount= (ForgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
 
-		double energy = energyUtils.getEnergy(pos,world);
-		double maxEnergy = energyUtils.getMaxEnergy(pos,world);
-		double maxProgress = 2* upgradeHandler.getSpeed(speedCount);
+		double energy = EnergyUtils.getEnergy(pos,world);
+		double maxEnergy = EnergyUtils.getMaxEnergy(pos,world);
+		double maxProgress = 2* UpgradeHandler.getSpeed(speedCount);
 		double progress = maxProgress;
-		double prevProgress = (forgeUtils.getNBT(pos,world).getDouble("progress"));
+		double prevProgress = (ForgeUtils.getNBT(pos,world).getDouble("progress"));
 		double percentPower = (energy/maxEnergy)*2;
 		if(energy<(maxEnergy/2)){
 			progress = (int) Math.ceil(maxProgress*percentPower);
 		}
 		if(energy<20)progress=-1;
 
-		boolean success = forgeUtils.itemUtils.smeltItem(pos,0,1,true,world);
+		boolean success = ForgeUtils.itemUtils.smeltItem(pos,0,1,true,world);
 		if(progress+prevProgress>15)progress=15-prevProgress;
 		if(success&&progress>0){
-			energyUtils.removeEnergy(pos,(int)Math.floor(progress*20*upgradeHandler.getEff(effCount)),world);
+			EnergyUtils.removeEnergy(pos,(int)Math.floor(progress*20* UpgradeHandler.getEff(effCount)),world);
 		}else{
 			progress = -1;
 		}
 		double actualProgress = prevProgress+progress;
 		if(actualProgress<0)actualProgress=0;
 		if(prevProgress==15){
-			forgeUtils.itemUtils.smeltItem(pos,0,1,false,world);
+			ForgeUtils.itemUtils.smeltItem(pos,0,1,false,world);
 			actualProgress = 0;
-			forgeUtils.setNBTProp(pos, "progress", actualProgress,world);
+			ForgeUtils.setNBTProp(pos, "progress", actualProgress,world);
 		}
-		forgeUtils.setNBTProp(pos, "progress", actualProgress,world);
-		forgeUtils.setProp(pos, EnergioomFurnaceBlock.ACTIVE, success&&energy>=20,world);
+		ForgeUtils.setNBTProp(pos, "progress", actualProgress,world);
+		ForgeUtils.setProp(pos, EnergioomFurnaceBlock.ACTIVE, success&&energy>=20,world);
 	}
 }

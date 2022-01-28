@@ -1,13 +1,9 @@
 package net.mcreator.energioom.procedures;
 
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.energioom.EnergioomMod;
@@ -49,9 +45,9 @@ public class EnergioomShieldProjectorOnBlockRightClickedProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 
 		BlockPos pos = new BlockPos(x,y,z);
-		if(forgeUtils.getNBT(pos,world).getString("owner-id").length()<1){
-			forgeUtils.setNBTProp(pos,"owner-id",entity.getUniqueID().toString(),world);
-			forgeUtils.setNBTProp(pos,"owner-nick",entity.getName().getString(),world);
+		if(ForgeUtils.getNBT(pos,world).getString("owner-id").length()<1){
+			ForgeUtils.setNBTProp(pos,"owner-id",entity.getUniqueID().toString(),world);
+			ForgeUtils.setNBTProp(pos,"owner-nick",entity.getName().getString(),world);
 		}
 	}
 }

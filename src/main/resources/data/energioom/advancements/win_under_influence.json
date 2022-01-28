@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:end_crystal"
+    },
+    "title": {
+      "translate": "advancements.win_under_influence.title"
+    },
+    "description": {
+      "translate": "advancements.win_under_influence.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "win_under_influence": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "energioom:there_must_be_a_catch"
+}

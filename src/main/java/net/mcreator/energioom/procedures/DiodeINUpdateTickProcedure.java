@@ -1,16 +1,10 @@
 package net.mcreator.energioom.procedures;
 
 import net.mcreator.energioom.EnergioomModElements;
-import net.mcreator.energioom.block.DiodeINBlock;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.DiodeOUTBlock;
-import net.mcreator.energioom.block.RedstoneDiodeINBlock;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import java.util.Map;
@@ -47,9 +41,9 @@ public class DiodeINUpdateTickProcedure extends EnergioomModElements.ModElement 
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 
-		forgeUtils.sideBlock[] sides = forgeUtils.getSidesOf(new BlockPos(x,y,z), DiodeOUTBlock.block,world);
-		for(forgeUtils.sideBlock side:sides){
-			energyUtils.sendEnergyNBL(new BlockPos(x,y,z),side.pos,1000,world);
+		ForgeUtils.sideBlock[] sides = ForgeUtils.getSidesOf(new BlockPos(x,y,z), DiodeOUTBlock.block,world);
+		for(ForgeUtils.sideBlock side:sides){
+			EnergyUtils.sendEnergyNBL(new BlockPos(x,y,z),side.pos,1000,world);
 		}
 
 	}

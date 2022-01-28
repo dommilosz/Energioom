@@ -1,27 +1,15 @@
 package net.mcreator.energioom.procedures;
 
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.world.GameType;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.client.network.play.NetworkPlayerInfo;
-import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.client.Minecraft;
 
 import net.mcreator.energioom.EnergioomModElements;
 
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.Random;
 import java.util.Map;
 
 @EnergioomModElements.ModElement.Tag
@@ -68,13 +56,13 @@ public class EnergioomReaderRightClickedOnBlockProcedure extends EnergioomModEle
         double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
         World world = (World) dependencies.get("world");
 
-        if(energyUtils.hasEnergyStorage(new BlockPos(x,y,z),world)){
-            if (forgeUtils.getGameMode(entity)!=1){
-                forgeUtils.damageItemStack(itemstack,1);
+        if(EnergyUtils.hasEnergyStorage(new BlockPos(x,y,z),world)){
+            if (ForgeUtils.getGameMode(entity)!=1){
+                ForgeUtils.damageItemStack(itemstack,1);
             }
-            double energy = energyUtils.getEnergy(new BlockPos(x,y,z),world);
-            double maxEnergy = energyUtils.getMaxEnergy(new BlockPos(x,y,z),world);
-            forgeUtils.sendMessage(entity,"Energioom: "+energy+"/"+maxEnergy + " - ("+Math.floor(energy/maxEnergy*100)+"%)",false);
+            double energy = EnergyUtils.getEnergy(new BlockPos(x,y,z),world);
+            double maxEnergy = EnergyUtils.getMaxEnergy(new BlockPos(x,y,z),world);
+            ForgeUtils.sendMessage(entity,"Energioom: "+energy+"/"+maxEnergy + " - ("+Math.floor(energy/maxEnergy*100)+"%)",false);
         }
 
 

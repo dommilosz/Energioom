@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 
-public class energyUtils {
+public class EnergyUtils {
     public static Block[] getBlacklistedBlocks() {
         return new Block[] { DiodeOUTBlock.block, ItemEnergioomoniser3000Block.block, SolarPanelT1Block.block };
     }
@@ -104,13 +104,13 @@ public class energyUtils {
     public static boolean generateEnergyCacheDecimal(BlockPos pos, double amount, boolean simulate, World world) {
         if (getEnergy(pos, world) + amount <= getMaxEnergy(pos, world)) {
             if (!simulate) {
-                double generationAdd = forgeUtils.getNBT(pos, world).getDouble("generation_add");
+                double generationAdd = ForgeUtils.getNBT(pos, world).getDouble("generation_add");
                 double add = amount - Math.floor(amount);
                 if (generationAdd > 1.0D) {
                     amount += Math.floor(generationAdd);
                     generationAdd -= Math.floor(generationAdd);
                 }
-                forgeUtils.setNBTProp(pos, "generation_add", generationAdd + add, world);
+                ForgeUtils.setNBTProp(pos, "generation_add", generationAdd + add, world);
                 addEnergy(pos, (int)Math.floor(amount), world);
             }
             return true;
@@ -135,13 +135,13 @@ public class energyUtils {
     }
 
     public static void distributeEnergy(BlockPos pos, int amount, World world) {
-        forgeUtils.sideBlock[] sides = getEnergySides(pos, world);
+        ForgeUtils.sideBlock[] sides = getEnergySides(pos, world);
         if (sides.length < 1)
             return;
         int powerPerSide = (int)Math.min(Math.floorDiv(amount, sides.length), getEnergy(pos, world));
         int powerLeft = amount;
         while (powerLeft > 0) {
-            for (forgeUtils.sideBlock side : sides) {
+            for (ForgeUtils.sideBlock side : sides) {
                 sendEnergyIfLower(pos, side.pos, 1, world);
                 powerLeft--;
                 if (powerLeft <= 0)
@@ -150,20 +150,20 @@ public class energyUtils {
         }
     }
 
-    public static forgeUtils.sideBlock[] getEnergySides(BlockPos pos, World world) {
-        ArrayList<forgeUtils.sideBlock> sides = new ArrayList<>();
+    public static ForgeUtils.sideBlock[] getEnergySides(BlockPos pos, World world) {
+        ArrayList<ForgeUtils.sideBlock> sides = new ArrayList<>();
         IEnergyStorage energyCapNX = getEnergyCapability(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ()), world);
         IEnergyStorage energyCapPX = getEnergyCapability(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ()), world);
         IEnergyStorage energyCapNY = getEnergyCapability(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ()), world);
         IEnergyStorage energyCapPY = getEnergyCapability(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), world);
         IEnergyStorage energyCapNZ = getEnergyCapability(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1), world);
         IEnergyStorage energyCapPZ = getEnergyCapability(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1), world);
-        forgeUtils.sideBlock blockNX = new forgeUtils.sideBlock(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ()), world);
-        forgeUtils.sideBlock blockPX = new forgeUtils.sideBlock(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ()), world);
-        forgeUtils.sideBlock blockNY = new forgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ()), world);
-        forgeUtils.sideBlock blockPY = new forgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), world);
-        forgeUtils.sideBlock blockNZ = new forgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1), world);
-        forgeUtils.sideBlock blockPZ = new forgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1), world);
+        ForgeUtils.sideBlock blockNX = new ForgeUtils.sideBlock(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ()), world);
+        ForgeUtils.sideBlock blockPX = new ForgeUtils.sideBlock(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ()), world);
+        ForgeUtils.sideBlock blockNY = new ForgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ()), world);
+        ForgeUtils.sideBlock blockPY = new ForgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), world);
+        ForgeUtils.sideBlock blockNZ = new ForgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1), world);
+        ForgeUtils.sideBlock blockPZ = new ForgeUtils.sideBlock(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1), world);
         if (energyCapNX != null)
             sides.add(blockNX);
         if (energyCapPX != null)
@@ -176,29 +176,29 @@ public class energyUtils {
             sides.add(blockNZ);
         if (energyCapPZ != null)
             sides.add(blockPZ);
-        forgeUtils.sideBlock[] sidesArr = new forgeUtils.sideBlock[sides.size()];
+        ForgeUtils.sideBlock[] sidesArr = new ForgeUtils.sideBlock[sides.size()];
         for (int i = 0; i < sides.size(); i++)
             sidesArr[i] = sides.get(i);
         return sidesArr;
     }
 
     public static void distributeEnergyBL(BlockPos pos, int amount, World world, Block[] bl) {
-        forgeUtils.sideBlock[] sides = getEnergySides(pos, world);
+        ForgeUtils.sideBlock[] sides = getEnergySides(pos, world);
         if (sides.length < 1)
             return;
         int powerPerSide = (int)Math.min(Math.floorDiv(amount, sides.length), getEnergy(pos, world));
-        for (forgeUtils.sideBlock side : sides) {
+        for (ForgeUtils.sideBlock side : sides) {
             if (!Arrays.<Block>asList(bl).contains(side.block))
                 sendEnergyIfLower(pos, side.pos, powerPerSide, world);
         }
     }
 
     public static void spreadEnergyBL(BlockPos pos, int amount, World world, Block[] bl) {
-        forgeUtils.sideBlock[] sides = getEnergySides(pos, world);
+        ForgeUtils.sideBlock[] sides = getEnergySides(pos, world);
         if (sides.length < 1)
             return;
         int powerPerSide = (int)Math.min(Math.floorDiv(amount, sides.length), getEnergy(pos, world));
-        for (forgeUtils.sideBlock side : sides) {
+        for (ForgeUtils.sideBlock side : sides) {
             if (!Arrays.<Block>asList(bl).contains(side.block))
                 sendEnergy(pos, side.pos, powerPerSide, world);
         }
@@ -223,7 +223,7 @@ public class energyUtils {
     }
 
     static void recursiveGetNetworkNodes(BlockPos pos, World world, ArrayList<BlockPos> networkMap, int limit) {
-        for (forgeUtils.sideBlock side : getEnergySides(pos, world)) {
+        for (ForgeUtils.sideBlock side : getEnergySides(pos, world)) {
             if (!networkMap.contains(side.pos)) {
                 networkMap.add(side.pos);
                 recursiveGetNetworkNodes(side.pos, world, networkMap, limit);
@@ -247,16 +247,16 @@ public class energyUtils {
     }
 
     public static void generateEnergyFromItem(BlockPos pos, Item item, int slot, int amount, World world) {
-        if (forgeUtils.itemUtils.equals(pos, slot, item, world) &&
-                forgeUtils.itemUtils.getItemCount(pos, slot, world) > 0 &&
+        if (ForgeUtils.itemUtils.equals(pos, slot, item, world) &&
+                ForgeUtils.itemUtils.getItemCount(pos, slot, world) > 0 &&
                 generateEnergy(pos, 100, false, world))
-            forgeUtils.itemUtils.changeStackAmountRelative(pos, slot, -1, world);
+            ForgeUtils.itemUtils.changeStackAmountRelative(pos, slot, -1, world);
     }
 
     public static void generateEnergyFromItemCacheDecimal(BlockPos pos, Item item, int slot, double amount, World world) {
-        if (forgeUtils.itemUtils.equals(pos, slot, item, world) &&
-                forgeUtils.itemUtils.getItemCount(pos, slot, world) > 0 &&
+        if (ForgeUtils.itemUtils.equals(pos, slot, item, world) &&
+                ForgeUtils.itemUtils.getItemCount(pos, slot, world) > 0 &&
                 generateEnergyCacheDecimal(pos, 100.0D, false, world))
-            forgeUtils.itemUtils.changeStackAmountRelative(pos, slot, -1, world);
+            ForgeUtils.itemUtils.changeStackAmountRelative(pos, slot, -1, world);
     }
 }

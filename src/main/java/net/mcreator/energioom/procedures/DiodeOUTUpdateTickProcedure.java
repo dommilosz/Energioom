@@ -3,14 +3,11 @@ package net.mcreator.energioom.procedures;
 import net.mcreator.energioom.block.DiodeINBlock;
 import net.mcreator.energioom.block.EnergioomExtractorBlock;
 import net.mcreator.energioom.block.RedstoneDiodeINBlock;
-import net.mcreator.energioom.energyUtils;
+import net.mcreator.energioom.EnergyUtils;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -48,6 +45,6 @@ public class DiodeOUTUpdateTickProcedure extends EnergioomModElements.ModElement
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 
-		energyUtils.spreadEnergyBL(new BlockPos(x,y,z),500,world,new Block[] {DiodeINBlock.block, RedstoneDiodeINBlock.block, EnergioomExtractorBlock.block});
+		EnergyUtils.spreadEnergyBL(new BlockPos(x,y,z),500,world,new Block[] {DiodeINBlock.block, RedstoneDiodeINBlock.block, EnergioomExtractorBlock.block});
 	}
 }

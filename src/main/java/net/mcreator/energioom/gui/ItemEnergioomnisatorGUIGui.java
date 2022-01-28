@@ -2,7 +2,7 @@
 package net.mcreator.energioom.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraftforge.items.SlotItemHandler;
@@ -338,7 +338,7 @@ public class ItemEnergioomnisatorGUIGui extends EnergioomModElements.ModElement 
 
 		@Override
 		protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-			double progress = forgeUtils.getNBT(new BlockPos(x,y,z),world).getDouble("progress");
+			double progress = ForgeUtils.getNBT(new BlockPos(x,y,z),world).getDouble("progress");
 			this.font.drawString(ms,"Progress: "+Math.floor(progress), 42, 61, -12829636);
 		}
 

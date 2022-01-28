@@ -2,7 +2,7 @@
 package net.mcreator.energioom.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.item.*;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
@@ -10,7 +10,6 @@ import org.lwjgl.opengl.GL11;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -24,7 +23,6 @@ import net.minecraft.world.World;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.container.Slot;
@@ -33,7 +31,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.Minecraft;
@@ -41,7 +38,6 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.energioom.EnergioomModElements;
 import net.mcreator.energioom.EnergioomMod;
 
-import java.lang.reflect.Array;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -136,10 +132,10 @@ public class UpgradeGUIGui extends EnergioomModElements.ModElement {
                 }
             }));
             try {
-                int speedType = (forgeUtils.getNBT(pos, world).getInt("uprgrade_speed_type"));
-                int speedCount = (forgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
-                int effType = (forgeUtils.getNBT(pos, world).getInt("uprgrade_eff_type"));
-                int effCount = (forgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
+                int speedType = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_speed_type"));
+                int speedCount = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
+                int effType = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_eff_type"));
+                int effCount = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
                 Item speedTypeItem;
                 Item effTypeItem;
 
@@ -341,10 +337,10 @@ public class UpgradeGUIGui extends EnergioomModElements.ModElement {
                 }
 
                 BlockPos pos = new BlockPos(x, y, z);
-                forgeUtils.setNBTProp(pos, "uprgrade_speed", speedCount, world);
-                forgeUtils.setNBTProp(pos, "uprgrade_speed_type", speedType, world);
-                forgeUtils.setNBTProp(pos, "uprgrade_eff_type", effType, world);
-                forgeUtils.setNBTProp(pos, "uprgrade_eff", effCount, world);
+                ForgeUtils.setNBTProp(pos, "uprgrade_speed", speedCount, world);
+                ForgeUtils.setNBTProp(pos, "uprgrade_speed_type", speedType, world);
+                ForgeUtils.setNBTProp(pos, "uprgrade_eff_type", effType, world);
+                ForgeUtils.setNBTProp(pos, "uprgrade_eff", effCount, world);
             }
         }
 
@@ -408,8 +404,8 @@ public class UpgradeGUIGui extends EnergioomModElements.ModElement {
         @Override
         protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
             this.font.drawString(ms,"Upgrader", 60, 7, -12829636);
-            int speedCount = forgeUtils.itemUtils.getItemStackGUI(this.entity, 0).getCount();
-            int effCount = forgeUtils.itemUtils.getItemStackGUI(this.entity, 1).getCount();
+            int speedCount = ForgeUtils.itemUtils.getItemStackGUI(this.entity, 0).getCount();
+            int effCount = ForgeUtils.itemUtils.getItemStackGUI(this.entity, 1).getCount();
             float speedChange = (float) Math.floor(Math.pow(speedCount + 1, 0.5) * 100);
             float effChange = (float) Math.floor(Math.pow(effCount + 1, -0.5) * 100);
             this.font.drawString(ms,"Speed: " + speedChange + "% Efficiency: " + effChange + "%", 6, 61, -12829636);

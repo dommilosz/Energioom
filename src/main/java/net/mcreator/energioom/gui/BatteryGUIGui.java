@@ -2,7 +2,7 @@
 package net.mcreator.energioom.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.mcreator.energioom.energyUtils;
+import net.mcreator.energioom.EnergyUtils;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraftforge.items.ItemStackHandler;
@@ -151,8 +151,8 @@ public class BatteryGUIGui extends EnergioomModElements.ModElement {
         @Override
         protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
             try {
-                this.font.drawString(ms,"Energioom: " + energyUtils.getEnergy(new BlockPos(this.x, this.y, this.z), this.world) + "/" + energyUtils.getMaxEnergy(new BlockPos(this.x, this.y, this.z), this.world), 13.0F, 73.0F, -12829636);
-                this.font.drawString(ms,"Network: " + energyUtils.getEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world) + "/" + energyUtils.getMaxEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world), 13.0F, 93.0F, -12829636);
+                this.font.drawString(ms,"Energioom: " + EnergyUtils.getEnergy(new BlockPos(this.x, this.y, this.z), this.world) + "/" + EnergyUtils.getMaxEnergy(new BlockPos(this.x, this.y, this.z), this.world), 13.0F, 73.0F, -12829636);
+                this.font.drawString(ms,"Network: " + EnergyUtils.getEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world) + "/" + EnergyUtils.getMaxEnergyInNetwork(new BlockPos(this.x, this.y, this.z), this.world), 13.0F, 93.0F, -12829636);
             } catch (Exception exception) {
             }
         }

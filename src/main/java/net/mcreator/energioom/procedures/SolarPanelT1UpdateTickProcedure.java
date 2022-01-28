@@ -1,16 +1,12 @@
 package net.mcreator.energioom.procedures;
 
-import net.mcreator.energioom.block.RedstoneDiodeINBlock;
+import net.mcreator.energioom.ForgeUtils;
 import net.mcreator.energioom.block.SolarPanelT1Block;
-import net.mcreator.energioom.energyUtils;
-import net.mcreator.energioom.forgeUtils;
-import net.mcreator.energioom.upgradeHandler;
+import net.mcreator.energioom.EnergyUtils;
+import net.mcreator.energioom.UpgradeHandler;
 import net.minecraft.world.World;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 
 import net.mcreator.energioom.EnergioomModElements;
 
@@ -48,16 +44,16 @@ public class SolarPanelT1UpdateTickProcedure extends EnergioomModElements.ModEle
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 		BlockPos pos = new BlockPos(x,y ,z );
-		forgeUtils.setNBTProp(pos,"upgradeable",true,world);
-		int speedCount = (forgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
-		int effCount= (forgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
+		ForgeUtils.setNBTProp(pos,"upgradeable",true,world);
+		int speedCount = (ForgeUtils.getNBT(pos, world).getInt("uprgrade_speed"));
+		int effCount= (ForgeUtils.getNBT(pos, world).getInt("uprgrade_eff"));
 
 		boolean enabled = ((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z))) && (world.isDaytime()));
-		double generation = 1* upgradeHandler.getSpeed(speedCount);
+		double generation = 1* UpgradeHandler.getSpeed(speedCount);
 		if(enabled){
-			energyUtils.generateEnergyCacheDecimal(pos,(generation),false,world);
+			EnergyUtils.generateEnergyCacheDecimal(pos,(generation),false,world);
 		}
-		forgeUtils.setProp(pos, SolarPanelT1Block.ENABLED,enabled,world);
-		energyUtils.sendEnergy(pos,new BlockPos(x,y-1,z),200,world);
+		ForgeUtils.setProp(pos, SolarPanelT1Block.ENABLED,enabled,world);
+		EnergyUtils.sendEnergy(pos,new BlockPos(x,y-1,z),200,world);
 	}
 }

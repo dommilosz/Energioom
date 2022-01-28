@@ -1,0 +1,29 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "powdered_energioom",
+    "customModelName": "Normal",
+    "name": "Powdered Energioom",
+    "rarity": "RARE",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "FOOD"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 10,
+    "saturation": 10.0,
+    "eatingSpeed": 64,
+    "resultItem": {
+      "value": ""
+    },
+    "forDogs": false,
+    "isAlwaysEdible": true,
+    "animation": "bow",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "PowderedEnergioomFoodEaten"
+    }
+  }
+}

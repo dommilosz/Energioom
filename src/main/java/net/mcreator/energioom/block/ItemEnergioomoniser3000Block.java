@@ -1,7 +1,7 @@
 
 package net.mcreator.energioom.block;
 
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.util.*;
 import net.minecraftforge.registries.ObjectHolder;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
@@ -158,7 +158,7 @@ public class ItemEnergioomoniser3000Block extends EnergioomModElements.ModElemen
 								new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
 					}
 				}, new BlockPos(x, y, z));
-				forgeUtils.AddAchievement(entity,new ResourceLocation("energioom:first_energy"));
+				ForgeUtils.AddAchievement(entity,new ResourceLocation("energioom:first_energy"));
 			}
 			return ActionResultType.SUCCESS;
 		}

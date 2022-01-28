@@ -1,7 +1,7 @@
 
 package net.mcreator.energioom.block;
 
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.loot.LootContext;
 import net.minecraftforge.registries.ObjectHolder;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
@@ -104,7 +104,7 @@ public class EnergioomDoorsBlock extends EnergioomModElements.ModElement {
 		}
 
 		public void setOpenState(World worldIn, BlockPos pos,boolean open){
-			forgeUtils.setProp(pos,OPEN,open,worldIn);
+			ForgeUtils.setProp(pos,OPEN,open,worldIn);
 		}
 
 		@Override

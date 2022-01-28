@@ -1,15 +1,12 @@
 package net.mcreator.energioom.procedures;
 
-import net.mcreator.energioom.forgeUtils;
+import net.mcreator.energioom.ForgeUtils;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
-import net.minecraftforge.energy.CapabilityEnergy;
 
-import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.Container;
@@ -65,7 +62,7 @@ public class EnergioomUpgraderRightClickedOnBlockProcedure extends EnergioomModE
 		World world = (World) dependencies.get("world");
 
 		try{
-		if(forgeUtils.getNBT(pos,world).getBoolean("upgradeable")){
+		if(ForgeUtils.getNBT(pos,world).getBoolean("upgradeable")){
 			{
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
