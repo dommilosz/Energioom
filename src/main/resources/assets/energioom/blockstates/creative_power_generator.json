@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "energioom:block/creative_power_generator"
+    }
+  }
+}

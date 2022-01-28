@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "energioom:energioom_block"
+    },
+    "title": {
+      "translate": "advancements.how_am_i_supposed_to_open_it.title"
+    },
+    "description": {
+      "translate": "advancements.how_am_i_supposed_to_open_it.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "how_am_i_supposed_to_open_it": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "energioom:feel_the_power_advancement"
+}

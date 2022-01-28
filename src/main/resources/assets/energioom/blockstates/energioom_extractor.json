@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "energioom:block/energioom_extractor"
+    },
+    "powered=true": {
+      "model": "energioom:block/energioom_extractor_on"
+    }
+  }
+}

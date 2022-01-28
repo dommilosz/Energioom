@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "1": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "2": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "3": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "4": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "5": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "6": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "7": {
+      "item": "energioom:energioom_shard_refined"
+    },
+    "8": {
+      "item": "energioom:energioom_shard_refined"
+    }
+  },
+  "result": {
+    "item": "energioom:energioom_shard",
+    "count": 1
+  }
+}

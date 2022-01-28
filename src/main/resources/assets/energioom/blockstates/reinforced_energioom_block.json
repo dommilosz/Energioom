@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "energioom:block/reinforced_energioom_block"
+    }
+  }
+}

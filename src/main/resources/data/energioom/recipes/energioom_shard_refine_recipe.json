@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 1,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "energioom:energioom_shard"
+  },
+  "result": {
+    "item": "energioom:energioom_shard_refined"
+  }
+}

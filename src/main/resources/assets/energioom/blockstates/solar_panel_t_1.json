@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "enabled=false": {
+      "model": "energioom:block/solar_panel_t_1"
+    },
+    "enabled=true": {
+      "model": "energioom:block/solar_panel_t_1_on"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "energioom:energioom_infused_grass"
+    },
+    "title": {
+      "translate": "advancements.feel_the_power_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.feel_the_power_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "feel_the_power_advancement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "biome": "energioom:energioom_land"
+      }
+    }
+  },
+  "parent": "energioom:getting_started_advancement"
+}

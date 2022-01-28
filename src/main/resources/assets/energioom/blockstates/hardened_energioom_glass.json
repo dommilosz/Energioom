@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "energioom:block/hardened_energioom_glass"
+    }
+  }
+}

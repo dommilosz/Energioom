@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,enabled=false": {
+      "model": "energioom:block/energioom_furnace"
+    },
+    "facing=east,enabled=false": {
+      "model": "energioom:block/energioom_furnace",
+      "y": 90
+    },
+    "facing=south,enabled=false": {
+      "model": "energioom:block/energioom_furnace",
+      "y": 180
+    },
+    "facing=west,enabled=false": {
+      "model": "energioom:block/energioom_furnace",
+      "y": 270
+    },
+    "facing=north,enabled=true": {
+      "model": "energioom:block/energioom_furnace_on"
+    },
+    "facing=east,enabled=true": {
+      "model": "energioom:block/energioom_furnace_on",
+      "y": 90
+    },
+    "facing=south,enabled=true": {
+      "model": "energioom:block/energioom_furnace_on",
+      "y": 180
+    },
+    "facing=west,enabled=true": {
+      "model": "energioom:block/energioom_furnace_on",
+      "y": 270
+    }
+  }
+}

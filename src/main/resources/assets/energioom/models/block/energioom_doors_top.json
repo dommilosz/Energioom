@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "energioom:blocks/energioomdoorsdown",
+    "top": "energioom:blocks/energioomdoorsup"
+  }
+}

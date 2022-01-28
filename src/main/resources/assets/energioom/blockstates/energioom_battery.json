@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "power_lvl=0": {
+      "model": "energioom:block/energioom_battery"
+    },
+    "power_lvl=1": {
+      "model": "energioom:block/energioom_battery2"
+    },
+    "power_lvl=2": {
+      "model": "energioom:block/energioom_battery4"
+    },
+    "power_lvl=3": {
+      "model": "energioom:block/energioom_battery6"
+    },
+    "power_lvl=4": {
+      "model": "energioom:block/energioom_battery8"
+    },
+    "power_lvl=5": {
+      "model": "energioom:block/energioom_battery10"
+    },
+    "power_lvl=6": {
+      "model": "energioom:block/energioom_battery12"
+    },
+    "power_lvl=7": {
+      "model": "energioom:block/energioom_battery14"
+    },
+    "power_lvl=8": {
+      "model": "energioom:block/energioom_battery16"
+    }
+  }
+}

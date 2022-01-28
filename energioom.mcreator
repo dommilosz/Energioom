@@ -1,0 +1,1212 @@
+{
+  "mod_elements": [
+    {
+      "name": "EnergioomBattery",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_battery",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "ItemEnergioomoniser3000",
+      "type": "block",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "item_energioomoniser_3000",
+      "path": "~/Power/Generators"
+    },
+    {
+      "name": "EnergioomCrystal",
+      "type": "item",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_crystal"
+    },
+    {
+      "name": "EnergioomReaderRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_reader_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power"
+    },
+    {
+      "name": "EnergioomReader",
+      "type": "item",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_reader",
+      "path": "~/Power"
+    },
+    {
+      "name": "ItemEnergioomoniser3000UpdateTick",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "item_energioomoniser_3000_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Generators"
+    },
+    {
+      "name": "BatteryScript",
+      "type": "procedure",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "battery_script",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "ItemEnergioomnisatorGUI",
+      "type": "gui",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "item_energioomnisator_gui",
+      "path": "~/Power/Generators"
+    },
+    {
+      "name": "DiodeINUpdateTick",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "diode_in_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "DiodeIN",
+      "type": "block",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diode_in",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "DiodeOUT",
+      "type": "block",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diode_out",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "DiodeOUTUpdateTick",
+      "type": "procedure",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "diode_out_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "BatteryGUI",
+      "type": "gui",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "battery_gui",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "CreativePowerGeneratorUpdateTick",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "creative_power_generator_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "CreativePowerGenerator",
+      "type": "block",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "creative_power_generator",
+      "path": "~/Power/Generators"
+    },
+    {
+      "name": "RedstoneGateUpdateTick",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "redstone_gate_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "RedstoneDiodeIN",
+      "type": "block",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "redstone_diode_in",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "SolarPanelT1UpdateTick",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "solar_panel_t_1_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Generators"
+    },
+    {
+      "name": "SolarPanelT1",
+      "type": "block",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "solar_panel_t_1",
+      "path": "~/Power/Generators"
+    },
+    {
+      "name": "NetworkMonitor",
+      "type": "gui",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "network_monitor",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "NetworkMonitorBlock",
+      "type": "block",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "network_monitor_block",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "Energioom",
+      "type": "tab",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom"
+    },
+    {
+      "name": "EnergioomVanishitator3600UpdateTick",
+      "type": "procedure",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_vanishitator_3600_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "EnergioomVanishitator3600",
+      "type": "block",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_vanishitator_3600",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "EnergioomExtractorUpdateTick",
+      "type": "procedure",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_extractor_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "EnergioomExtractor",
+      "type": "block",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_extractor",
+      "path": "~/Power/Storage"
+    },
+    {
+      "name": "EnergioomInfusedGrassEntityWalksOnTheBlock",
+      "type": "procedure",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_infused_grass_entity_walks_on_the_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomInfusedGrass",
+      "type": "block",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_infused_grass",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomStone",
+      "type": "block",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_stone",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomLand",
+      "type": "biome",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_land",
+      "path": "~/BiomesStructures"
+    },
+    {
+      "name": "EnergioomBunker",
+      "type": "structure",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_bunker",
+      "path": "~/BiomesStructures"
+    },
+    {
+      "name": "ReinforcedEnergioomBlock",
+      "type": "block",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reinforced_energioom_block",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomBricks",
+      "type": "block",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_bricks",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomDoors",
+      "type": "block",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_doors",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomDoorsUpdateTick",
+      "type": "procedure",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_doors_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "HardenedDoorsPowerer",
+      "type": "block",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hardened_energioom_distributor",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomBlock",
+      "type": "block",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_block",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomGlass",
+      "type": "block",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_glass",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "HardenedEnergioomGlass",
+      "type": "block",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hardened_energioom_glass",
+      "path": "~/Blocks"
+    },
+    {
+      "name": "EnergioomShard",
+      "type": "item",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_shard"
+    },
+    {
+      "name": "EnergioomBunkerLoot",
+      "type": "loottable",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_bunker_loot",
+      "path": "~/BiomesStructures"
+    },
+    {
+      "name": "EnergioomShardRefined",
+      "type": "item",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_shard_refined"
+    },
+    {
+      "name": "EnergioomShardRefineRecipe",
+      "type": "recipe",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_shard_refine_recipe",
+      "path": "~/Recipes"
+    },
+    {
+      "name": "EnergioomCrystalCrafting",
+      "type": "recipe",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_crystal_crafting",
+      "path": "~/Recipes"
+    },
+    {
+      "name": "EnergioomShardsDrop",
+      "type": "loottable",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_shards_drop",
+      "path": "~/BiomesStructures"
+    },
+    {
+      "name": "EnergioomFurnace",
+      "type": "block",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_furnace"
+    },
+    {
+      "name": "EnergioomFurnaceUpdateTick",
+      "type": "procedure",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_furnace_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EnergioomFurnaceGUI",
+      "type": "gui",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_furnace_gui"
+    },
+    {
+      "name": "BaseUpgrade",
+      "type": "item",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "base_upgrade",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "SpeedUpgrade",
+      "type": "item",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "speed_upgrade",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "EfficiencyUpgrade",
+      "type": "item",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "efficiency_upgrade",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "UpgradeGUI",
+      "type": "gui",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "upgrade_gui",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "EnergioomUpgraderRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_upgrader_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EnergioomUpgrader",
+      "type": "item",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_upgrader",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "BaseUpgradeT2",
+      "type": "item",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "base_upgrade_t_2",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "SpeedUpgradeT2",
+      "type": "item",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "speed_upgrade_t_2",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "EfficiencyUpgradeT2",
+      "type": "item",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "efficiency_upgrade_t_2",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "EfficiencyUpgradeT3",
+      "type": "item",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "efficiency_upgrade_t_3",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "SpeedUpgradeT3",
+      "type": "item",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "speed_upgrade_t_3",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "BaseUpgradeT3",
+      "type": "item",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "base_upgrade_t_3",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "BaseUpgradeT4",
+      "type": "item",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "base_upgrade_t_4",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "SpeedUpgradeT4",
+      "type": "item",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "speed_upgrade_t_4",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "EfficiencyUpgradeT4",
+      "type": "item",
+      "sortid": 56,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "efficiency_upgrade_t_4",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "Testss",
+      "type": "item",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "testss",
+      "path": "~/Upgrades"
+    },
+    {
+      "name": "ForgeUtils",
+      "type": "code",
+      "sortid": 59,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "forge_utils",
+      "path": "~/Utilities"
+    },
+    {
+      "name": "EnergyUtils",
+      "type": "code",
+      "sortid": 60,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energy_utils",
+      "path": "~/Utilities"
+    },
+    {
+      "name": "UpgradeHandler",
+      "type": "code",
+      "sortid": 61,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "upgrade_handler",
+      "path": "~/Utilities"
+    },
+    {
+      "name": "GettingStartedAdvancement",
+      "type": "achievement",
+      "sortid": 62,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "getting_started_advancement",
+      "path": "~/Acheivements"
+    },
+    {
+      "name": "FirstEnergy",
+      "type": "achievement",
+      "sortid": 63,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "first_energy",
+      "path": "~/Acheivements"
+    },
+    {
+      "name": "FeelThePowerAdvancement",
+      "type": "achievement",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "feel_the_power_advancement",
+      "path": "~/Acheivements"
+    },
+    {
+      "name": "HowAmISupposedToOpenIt",
+      "type": "achievement",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "how_am_i_supposed_to_open_it",
+      "path": "~/Acheivements"
+    },
+    {
+      "name": "LivingEnergioomBlock",
+      "type": "block",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "living_energioom_block"
+    },
+    {
+      "name": "EnergioomShieldProjector",
+      "type": "block",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energioom_shield_projector"
+    },
+    {
+      "name": "LivingEnergioomBlockBlockDestroyedByPlayer",
+      "type": "procedure",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "living_energioom_block_block_destroyed_by_player",
+      "metadata": {
+        "dependencies": []
+      }
+    },
+    {
+      "name": "BlockUtils",
+      "type": "code",
+      "sortid": 69,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "block_utils",
+      "path": "~/Utilities"
+    },
+    {
+      "name": "LivingEnergioomBlockUpdateTick",
+      "type": "procedure",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "living_energioom_block_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EnergioomShieldProjectorUpdateTick",
+      "type": "procedure",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_shield_projector_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EnergioomShieldProjectorGUI",
+      "type": "gui",
+      "sortid": 72,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_shield_projector_gui"
+    },
+    {
+      "name": "EnergioomShieldProjectorOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 74,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "energioom_shield_projector_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ts",
+      "type": "procedure",
+      "sortid": 75,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ts",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "test",
+      "type": "string",
+      "scope": "map",
+      "value": "\"\""
+    },
+    {
+      "name": "test2",
+      "type": "blockstate",
+      "scope": "player_lifetime",
+      "value": "Blocks.AIR.getDefaultState()"
+    }
+  ],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "advancements.how_am_i_supposed_to_open_it.descr": "Try to break energioom bunker building blocks",
+      "item.energioom.energioom_shard": "Energioom Shard",
+      "block.energioom.hardened_energioom_distributor": "Hardened Energioom Distributor",
+      "item.energioom.base_upgrade_t_4": "Upgrade Base [Tier4]",
+      "item.energioom.base_upgrade_t_3": "Upgrade Base [Tier3]",
+      "item.energioom.base_upgrade_t_2": "Upgrade Base [Tier2]",
+      "advancements.how_am_i_supposed_to_open_it.title": "How am I supposed to enter it",
+      "item.energioom.efficiency_upgrade": "Upgrade Efficiency [Tier1]",
+      "block.energioom.energioom_vanishitator_3600": "Energioom Vanishitator 3600",
+      "block.energioom.energioom_infused_grass": "Energioom Infused Grass",
+      "block.energioom.diode_out": "Diode OUT",
+      "item.energioom.speed_upgrade_t_4": "Upgrade Speed [Tier4]",
+      "item.energioom.speed_upgrade_t_3": "Upgrade Speed [Tier3]",
+      "item.energioom.base_upgrade": "Upgrade Base [Tier1]",
+      "item.energioom.speed_upgrade_t_2": "Upgrade Speed [Tier2]",
+      "block.energioom.redstone_diode_in": "Redstone Diode IN",
+      "itemGroup.tabenergioom": "Energioom",
+      "block.energioom.energioom_doors": "Energioom Doors",
+      "advancements.feel_the_power_advancement.descr": "Enter the energioom biome",
+      "advancements.getting_started_advancement.title": "Getting Started",
+      "block.energioom.solar_panel_t_1": "Solar Panel T 1",
+      "block.energioom.energioom_bricks": "Energioom Bricks",
+      "block.energioom.energioom_glass": "Energioom Glass",
+      "block.energioom.living_energioom_block": "Living Energioom Block",
+      "biome.energioom.energioom_land": "Energioom Land",
+      "item.energioom.testss": "Testss",
+      "block.energioom.creative_power_generator": "Creative Power Generator",
+      "block.energioom.energioom_battery": "Energioom Battery",
+      "advancements.first_energy.descr": "Craft ItemEnergioomoniser3000 and open it",
+      "block.energioom.energioom_furnace": "Energioom Furnace",
+      "item.energioom.energioom_shard_refined": "Energioom Shard Refined",
+      "block.energioom.energioom_extractor": "Energioom Extractor",
+      "block.energioom.energioom_block": "Energioom Block",
+      "block.energioom.hardened_energioom_glass": "Energioom Glass",
+      "item.energioom.energioom_upgrader": "Energioom Upgrader",
+      "block.energioom.energioom_stone": "Energioom Stone",
+      "block.energioom.item_energioomoniser_3000": "Item Energioomoniser 3000",
+      "block.energioom.diode_in": "Diode IN",
+      "block.energioom.network_monitor_block": "Network Monitor Block",
+      "advancements.getting_started_advancement.descr": "Collect energioom shard",
+      "item.energioom.energioom_reader": "Energioom Reader",
+      "item.energioom.speed_upgrade": "Upgrade Speed [Tier1]",
+      "advancements.feel_the_power_advancement.title": "Feel The Power",
+      "item.energioom.efficiency_upgrade_t_4": "Upgrade Efficiency [Tier4]",
+      "block.energioom.reinforced_energioom_block": "Reinforced Energioom Block",
+      "item.energioom.efficiency_upgrade_t_2": "Upgrade Efficiency [Tier2]",
+      "item.energioom.efficiency_upgrade_t_3": "Upgrade Efficiency [Tier3]",
+      "advancements.first_energy.title": "First Energy",
+      "item.energioom.energioom_crystal": "Energioom Crystal",
+      "block.energioom.energioom_shield_projector": "Energioom Shield Projector"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Utilities",
+        "children": []
+      },
+      {
+        "name": "TestCodeGen",
+        "children": []
+      },
+      {
+        "name": "Upgrades",
+        "children": []
+      },
+      {
+        "name": "Power",
+        "children": [
+          {
+            "name": "Generators",
+            "children": []
+          },
+          {
+            "name": "Storage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Recipes",
+        "children": []
+      },
+      {
+        "name": "BiomesStructures",
+        "children": []
+      },
+      {
+        "name": "Acheivements",
+        "children": []
+      },
+      {
+        "name": "Blocks",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "energioom",
+    "modName": "Energioom",
+    "version": "1.0.0",
+    "author": "dommilosz",
+    "websiteURL": "https://mcreator.net",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.16.5",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.energioom",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202100353117
+}

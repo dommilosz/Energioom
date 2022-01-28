@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "energioom:block/redstone_diode_in_off"
+    },
+    "powered=true": {
+      "model": "energioom:block/redstone_diode_in_on"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Enabled:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Enabled:",
+          "x": 132,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Anti TNT:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Anti TNT:",
+          "x": 132,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Self Prevent:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Self Prevent:",
+          "x": 132,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Power Usage: ",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Power Usage: ",
+          "x": 132,
+          "y": 152
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toggle",
+          "onClick": {
+            "name": "EnergioomShieldGUIButtonClick"
+          },
+          "width": 56,
+          "height": 20,
+          "name": "Toggle",
+          "x": 231,
+          "y": 53
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toggle",
+          "onClick": {
+            "name": "EnergioomShieldGUIButtonClick"
+          },
+          "width": 56,
+          "height": 20,
+          "name": "Toggle",
+          "x": 231,
+          "y": 80
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toggle",
+          "onClick": {
+            "name": "EnergioomShieldGUIButtonClick"
+          },
+          "width": 56,
+          "height": 20,
+          "name": "Toggle",
+          "x": 231,
+          "y": 107
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "energioom:blocks/creative_power_gen",
+    "up": "energioom:blocks/creative_power_gen",
+    "north": "energioom:blocks/creative_power_gen",
+    "east": "energioom:blocks/creative_power_gen",
+    "south": "energioom:blocks/creative_power_gen",
+    "west": "energioom:blocks/creative_power_gen",
+    "particle": "energioom:blocks/creative_power_gen"
+  }
+}

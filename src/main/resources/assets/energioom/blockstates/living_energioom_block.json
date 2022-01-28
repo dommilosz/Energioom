@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "enabled=false,explosion_proof=false": {
+      "model": "energioom:block/living_energioom_block"
+    },
+    "enabled=false,explosion_proof=true": {
+      "model": "energioom:block/living_energioom_block"
+    },
+    "enabled=true,explosion_proof=false": {
+      "model": "energioom:block/living_energioom_block_on"
+    },
+    "enabled=true,explosion_proof=true": {
+      "model": "energioom:block/living_energioom_block_exp"
+    }
+  }
+}

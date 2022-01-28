@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "energioom:block/network_monitor_block"
+    }
+  }
+}

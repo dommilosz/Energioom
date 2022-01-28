@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "energioom:blocks/blank",
+    "up": "energioom:blocks/blank",
+    "north": "energioom:blocks/extractor_on",
+    "east": "energioom:blocks/extractor_on",
+    "south": "energioom:blocks/extractor_on",
+    "west": "energioom:blocks/extractor_on",
+    "particle": "energioom:blocks/blank"
+  }
+}

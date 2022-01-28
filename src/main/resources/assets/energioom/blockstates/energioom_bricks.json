@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "energioom:block/energioom_bricks"
+    }
+  }
+}

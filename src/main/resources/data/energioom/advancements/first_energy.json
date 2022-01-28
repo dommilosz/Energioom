@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "energioom:item_energioomoniser_3000"
+    },
+    "title": {
+      "translate": "advancements.first_energy.title"
+    },
+    "description": {
+      "translate": "advancements.first_energy.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "first_energy": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "energioom:getting_started_advancement"
+}

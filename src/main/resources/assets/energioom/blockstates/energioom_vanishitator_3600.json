@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "energioom:block/energioom_vanishitator_3600"
+    },
+    "powered=true": {
+      "model": "energioom:block/energioom_vanishitator_3600_on"
+    }
+  }
+}

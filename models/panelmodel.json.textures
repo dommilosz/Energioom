@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "east": "solar_side_off",
+        "south": "solar_side_off",
+        "north": "solar_side_off",
+        "west": "solar_side_off",
+        "up": "solar_top",
+        "down": "blank"
+      },
+      "name": "default"
+    }
+  }
+}
